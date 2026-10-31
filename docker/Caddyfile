@@ -1,0 +1,41 @@
+{
+	admin off
+	auto_https off
+	order php_server before file_server
+	frankenphp
+
+	servers {
+		timeouts {
+			read_body 30s
+			read_header 10s
+			write 60s
+			idle 2m
+		}
+	}
+}
+
+# HTTP puro dentro do contêiner. O compose publica somente em 127.0.0.1:8081.
+# O Tor (no host) encaminha para essa porta; o Tor já cifra o trajeto.
+:8081 {
+	root * /app/public
+
+	log {
+		output stdout
+		format json
+	}
+
+	header -Server
+
+	# Nada oculto ou interno é servido (a raiz já é public/; isto é só reforço).
+	@internos path_regexp internos (?i)(^|/)\.|\.(env|sqlite3?|db|log|bak|sql|swp|orig|lock|ya?ml|ini|md|json|xml|dist|stub|sh)$
+	respond @internos 404
+
+	@estaticos path /assets/* /robots.txt
+	header @estaticos {
+		Cache-Control "public, max-age=3600"
+		X-Content-Type-Options nosniff
+	}
+
+	# Modo convencional: PHP por requisição, sem Octane nem worker persistente.
+	php_server
+}
