@@ -2079,3 +2079,27 @@ a.monitor-card.shortcut:hover {
     font-size: 16px; /* evita zoom automático no celular */
   }
 }
+
+/* Notas pessoais */
+.notes-toolbar,.note-actions,.notes-pagination {display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.notes-toolbar {margin-bottom:24px;padding:18px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.notes-toolbar label {display:grid;gap:6px;font-size:12px}
+.notes-toolbar select,.note-editor input,.note-editor textarea {padding:11px;border:1px solid var(--line);border-radius:8px;background:#fff;color:inherit;font:inherit;max-width:100%}
+.notes-count {margin-left:auto;font-size:12px}
+.notes-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.note-card {display:flex;flex-direction:column;min-width:0;padding:22px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.note-card h2 {font-size:18px;margin:0 0 14px;overflow-wrap:anywhere}
+.note-preview {white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.7;margin-bottom:20px}
+.note-card .note-preview {flex:1}
+.note-dates {display:grid;gap:5px;font-size:11px;color:#626d59;margin-bottom:18px}
+.note-actions {margin-top:14px}
+.note-danger {color:#9b382e}
+.note-editor {max-width:850px;padding:24px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.note-editor>label {display:block;margin:0 0 8px}
+.note-editor input,.note-editor textarea {display:block;width:100%;margin-bottom:20px;font-size:16px}
+.note-editor textarea {resize:vertical;min-height:220px}
+.notes-hint {font-size:12px;color:#626d59}
+.notes-feedback {padding:14px 18px;background:#eaf2df;border-radius:8px;margin-bottom:18px}
+.notes-pagination {justify-content:center;margin-top:24px;font-size:13px}
+@media(max-width:1100px){.notes-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.notes-grid{grid-template-columns:1fr}.notes-toolbar label{width:100%}.notes-count{margin-left:0}.note-editor{padding:18px}}

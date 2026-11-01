@@ -23,6 +23,7 @@
         <a href="{{ route('projetos', [], false) }}" class="{{ request()->routeIs('projetos') ? 'active' : '' }}" @if (request()->routeIs('projetos')) aria-current="page" @endif
           ><i><x-icone nome="layers" /></i>Projetos</a
         >
+        <a href="{{ route('notas.index', [], false) }}" class="{{ request()->routeIs('notas.*') ? 'active' : '' }}" @if (request()->routeIs('notas.*')) aria-current="page" @endif><i><x-icone nome="layers" /></i>Notas</a>
       </nav>
       <div class="sidebar-bottom">
         <div class="prototype-card">
