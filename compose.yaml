@@ -10,14 +10,14 @@ services:
       args:
         PUID: "1000"
         PGID: "1000"
-    image: painel-pessoal:local
-    container_name: painel-pessoal
+    image: naibed-server:local
+    container_name: naibed-server
     restart: unless-stopped
     user: "1000:1000"
     init: true
 
     ports:
-      - "127.0.0.1:8081:8081"
+      - "0.0.0.0:8080:8081"
 
     env_file:
       - .env
