@@ -1,11 +1,14 @@
-/vendor
+# Credentials and local configuration
 .env
 .env.*
-!.env.example
-*.sqlite
-*.sqlite-wal
-*.sqlite-shm
-*.log
-/backups
-.phpunit.result.cache
-.phpunit.cache
+*.pem
+*.key
+client_secret*.json
+
+# Build and editor output
+dist/
+.wrangler/
+node_modules/
+.DS_Store
+.idea/
+.vscode/
