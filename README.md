@@ -30,7 +30,7 @@ Depois visite `http://localhost:8000`.
 
 ## Publicar com GitHub Pages
 
-No repositório, abra **Settings → Pages**, escolha **Deploy from a branch**, selecione `main` e a pasta `/ (root)`. O site será publicado pelo GitHub Pages sem processo de build.
+O workflow em `.github/workflows/pages.yml` publica o site quando há atualização na branch `main`. Na primeira publicação, abra **Settings → Pages** e selecione **GitHub Actions** em *Build and deployment*. O site usa os próprios arquivos da raiz, sem etapa de build.
 
 ## Estrutura
 
@@ -39,6 +39,7 @@ index.html       conteúdo e estrutura semântica
 styles.css       identidade visual responsiva
 script.js        menu móvel, animações de entrada e ano do rodapé
 assets/mark.svg  favicon vetorial
+.github/workflows/pages.yml  publicação automática no GitHub Pages
 ```
 
 ## Privacidade
